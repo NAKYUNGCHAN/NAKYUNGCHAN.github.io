@@ -67,20 +67,24 @@
     grid-column: 1 / 11; margin: 0 0 56px;
     font-size: clamp(30px, 4.6vw, 64px); line-height: 1.14; font-weight: 500; letter-spacing: -0.035em;
   }
-  .statement .intro { grid-column: 4 / 9; }
+  .statement .intro { grid-column: 4 / 10; max-width: 40em; }
   .statement .aside { grid-column: 10 / 13; color: var(--soft); align-self: end; }
   .statement .aside a { color: var(--ink); border-bottom: 1px solid var(--ink); }
 
   /* Section: label in the left 3 columns, content in the right 9 */
-  section { padding: 0 0 120px; }
+  section { position: relative; z-index: 0; padding: 0 0 120px; }
   .sec { border-top: 1px solid var(--rule); padding-top: 12px; }
-  .sec > .label { grid-column: 1 / 4; font-weight: 600; }
+  .sec > .label { grid-column: 1 / 4; font-weight: 600; font-size: inherit; margin: 0; }
   .sec > .label span { color: var(--soft); font-weight: 400; }
   .sec > .body { grid-column: 4 / 13; }
+  /* One inner grid for every list: A = meta (2 cols), B = title (4), C = side (3) */
+  .in { display: grid; grid-template-columns: repeat(9, minmax(0, 1fr)); column-gap: 20px; }
+  .A { grid-column: 1 / 3; } .B { grid-column: 3 / 7; } .C { grid-column: 7 / 10; } .AB { grid-column: 1 / 7; }
 
   /* Key figures: type only, no boxes */
-  .figures { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 20px; row-gap: 40px; }
+  .figures { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 20px; row-gap: 40px; }
   .figure { border-top: 1px solid var(--hair); padding-top: 12px; }
+  .figure:nth-child(-n+3) { border-top: 0; padding-top: 0; }
   .figure b { display: block; font-size: clamp(28px, 3.2vw, 44px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.1; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
   .figure span { display: block; color: var(--soft); max-width: 22em; }
 
@@ -92,10 +96,12 @@
   .filters button[aria-pressed="true"] { color: var(--ink); text-decoration: underline; text-underline-offset: 4px; text-decoration-thickness: 1px; }
 
   /* Project index: an office project list */
-  .index-head, .project summary {
-    display: grid; grid-template-columns: 40px minmax(0, 4.2fr) minmax(0, 2fr) minmax(0, 1.3fr) minmax(0, 1.6fr) 20px;
-    column-gap: 20px; align-items: baseline;
-  }
+  .index-head, .project summary { position: relative; align-items: baseline; }
+  .index-head .u, .project summary .use { grid-column: 7 / 10; grid-row: 1; }
+  .index-head .s, .project summary .sc { grid-column: 7 / 10; grid-row: 1; justify-self: end; margin-right: 28px; }
+  .project summary .pd { grid-column: 1 / 3; grid-row: 1; color: var(--soft); }
+  .project summary .t { grid-column: 3 / 7; }
+  .no { display: inline-block; width: 2.2em; color: var(--soft); font-weight: 400; font-variant-numeric: tabular-nums; }
   .index-head { color: var(--soft); padding-bottom: 8px; border-bottom: 1px solid var(--rule); }
   .project { border-bottom: 1px solid var(--hair); }
   .project[hidden] { display: none; }
@@ -103,16 +109,16 @@
   .project summary::-webkit-details-marker { display: none; }
   .project summary:hover { background: var(--hover); }
   .project .t { font-weight: 600; }
-  .project .sign { text-align: right; color: var(--soft); }
+  .project .sign { position: absolute; right: 8px; top: 14px; color: var(--soft); }
   .project .sign::before { content: "+"; }
   .project[open] .sign::before { content: "−"; }
-  .use { display: inline-flex; align-items: baseline; gap: 8px; }
+  .use { display: inline-flex; align-items: baseline; gap: 8px; white-space: nowrap; }
   .use::before { content: ""; width: 9px; height: 9px; flex: none; background: var(--c); transform: translateY(-1px); }
   .r { --c: var(--residential); } .c { --c: var(--culture); } .m { --c: var(--commerce); }
 
-  .detail { display: grid; grid-template-columns: 40px minmax(0, 4.2fr) minmax(0, 4.9fr) 20px; column-gap: 20px; padding: 16px 0 48px; }
-  .detail .story { grid-column: 2; }
-  .detail .spec { grid-column: 3; }
+  .detail { padding: 16px 0 48px; row-gap: 28px; }
+  .detail > .story { grid-column: 3 / 7; }
+  .detail > .spec { grid-column: 7 / 10; align-self: start; }
   .story { margin: 0; max-width: 34em; }
   .story dt { color: var(--soft); margin-top: 20px; }
   .story dt:first-child { margin-top: 0; }
@@ -130,28 +136,30 @@
 
   /* Plain lists for career, other work, education */
   .rows { list-style: none; margin: 0; padding: 0; }
-  .rows li { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 4fr) minmax(0, 3fr); column-gap: 20px; padding: 12px 0; border-bottom: 1px solid var(--hair); }
-  .rows li:first-child { border-top: 1px solid var(--hair); }
+  .rows li { padding: 12px 0; border-bottom: 1px solid var(--hair); }
+  .rows li:first-child { padding-top: 0; }
   .rows .when { color: var(--soft); font-variant-numeric: tabular-nums; }
   .rows strong { font-weight: 600; display: block; }
   .rows small { display: block; font-size: 13px; color: var(--soft); margin-top: 2px; }
-  .rows .wide { grid-column: 2 / 4; }
-  .now .when::after { content: " ●"; font-size: 9px; vertical-align: 2px; }
+  .now .when::after { content: ""; display: inline-block; width: 7px; height: 7px; margin-left: 8px; border-radius: 50%; background: #5DBB7A; vertical-align: 1px; }
 
-  .others li { grid-template-columns: minmax(0, 4fr) minmax(0, 1fr) minmax(0, 4fr); }
-  .others .part { color: var(--soft); }
-  .note { color: var(--soft); max-width: 40em; margin-bottom: 24px; }
+  .others .part { grid-row: 1; color: var(--soft); }
+  .note { color: var(--soft); margin-bottom: 32px; }
+  .note + .rows li:first-child { border-top: 1px solid var(--hair); padding-top: 12px; }
 
   /* Research */
-  .paper { font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.3; max-width: 20em; margin-bottom: 8px; }
-  .research p.text { max-width: 40em; margin-top: 24px; }
-  .findings { list-style: none; margin: 40px 0 0; padding: 0; max-width: 40em; }
-  .findings li { display: grid; grid-template-columns: 96px 1fr; gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--hair); align-items: baseline; }
-  .findings li:first-child { border-top: 1px solid var(--rule); }
-  .findings b { font-weight: 500; font-size: 20px; letter-spacing: -0.02em; text-align: right; font-variant-numeric: tabular-nums; }
-  .research .fine { color: var(--soft); font-size: 13px; max-width: 46em; margin-top: 16px; }
+  .paper { font-size: clamp(22px, 2.4vw, 30px); font-weight: 500; letter-spacing: -0.03em; line-height: 1.3; margin-bottom: 8px; }
+  .research .AB + .AB { margin-top: 24px; }
+  .research .AB.meta { margin-top: 0; }
+  .findings { list-style: none; margin: 40px 0 16px; padding: 0; }
+  .findings li { padding: 10px 0; border-bottom: 1px solid var(--hair); align-items: baseline; }
+  .findings li:first-child { border-top: 1px solid var(--hair); }
+  .findings b { grid-column: 1 / 3; font-weight: 500; font-size: 20px; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+  .findings span { grid-column: 3 / 10; }
+  .research .fine { color: var(--soft); font-size: 13px; margin-top: 16px; }
 
-  .tools { max-width: 40em; margin-top: 40px; }
+  .tools { margin-top: 40px; }
+  .narrowAB { max-width: calc((100% - 160px) / 9 * 6 + 100px); }
 
   /* Footer */
   footer { padding: 0 0 24px; }
@@ -180,6 +188,7 @@
   .use { justify-self: start; padding: 1px 10px 1px 8px; border-radius: 999px; background: color-mix(in srgb, var(--c) 22%, transparent); font-size: 13.5px; }
   .use::before { border-radius: 50%; width: 7px; height: 7px; }
   .project summary { border-radius: 10px; padding-left: 8px; padding-right: 8px; margin: 0 -8px; }
+  .project summary.in { column-gap: 20px; }
   .figure b em { font-style: normal; }
   .js .reveal { opacity: 0; transform: translateY(14px); transition: opacity .8s ease, transform .8s ease; }
   .js .reveal.seen { opacity: 1; transform: none; }
@@ -187,6 +196,12 @@
   footer .sec { position: relative; }
   footer .mail:hover { color: var(--ink); background-size: 100% 100%; }
 
+  @media (max-width: 1100px) {
+    .index-head { display: none; }
+    .project summary .t { grid-column: 3 / 10; padding-right: 28px; }
+    .project summary .use { grid-column: 3 / 10; grid-row: 2; margin-top: 6px; }
+    .project summary .sc { grid-column: 3 / 10; grid-row: 2; margin-top: 6px; }
+  }
   @media (max-width: 960px) {
     .sec > .label { grid-column: 1 / 13; margin-bottom: 32px; }
     .sec > .body { grid-column: 1 / 13; }
@@ -206,16 +221,17 @@
     .statement .aside { margin-top: 24px; }
     section { padding-bottom: 80px; }
     .figures { grid-template-columns: 1fr 1fr; row-gap: 28px; }
-    .index-head { display: none; }
-    .project summary { grid-template-columns: 28px minmax(0, 1fr) 16px; row-gap: 2px; }
-    .project summary .t { grid-column: 2; }
-    .project summary .use, .project summary .sc, .project summary .pd { grid-column: 2; color: var(--soft); font-size: 14px; }
-    .project summary .sign { grid-column: 3; grid-row: 1; }
-    .detail { grid-template-columns: 28px minmax(0, 1fr); row-gap: 28px; }
-    .detail .story, .detail .spec { grid-column: 2; }
-    .rows li, .others li { grid-template-columns: 1fr; row-gap: 2px; }
-    .rows .wide { grid-column: 1; }
-    .findings li { grid-template-columns: 72px 1fr; }
+    .in { grid-template-columns: minmax(0, 1fr); row-gap: 2px; }
+    .in > * { grid-column: 1 / -1 !important; grid-row: auto !important; }
+    .project summary { row-gap: 4px; }
+    .project summary .pd { order: 4; font-size: 14px; }
+    .project summary .t { order: 1; padding-right: 24px; }
+    .project summary .use { order: 2; justify-self: start; margin-top: 4px; }
+    .project summary .sc { order: 3; font-size: 14px; color: var(--soft); margin: 0; justify-self: start; }
+    .detail { row-gap: 28px; }
+    .figure:nth-child(3) { border-top: 1px solid var(--hair); padding-top: 12px; }
+    .findings li { grid-template-columns: 72px minmax(0, 1fr) !important; column-gap: 16px; }
+    .findings li > * { grid-column: auto !important; }
     footer .mail { padding: 64px 0 80px; }
   }
   @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .glow, .status::before { animation: none; } .js .reveal { opacity: 1; transform: none; transition: none; } }
@@ -248,7 +264,7 @@
 
   <section id="results" aria-label="핵심 성과">
     <div class="sec grid">
-      <h2 class="label" style="margin:0;font-size:inherit">핵심 성과</h2>
+      <h2 class="label">핵심 성과</h2>
       <div class="body figures">
         <div class="figure reveal"><b>63세대 운영</b><span>임대주택 2개 단지(더 테라스47 · 테라스성복)의 준공 마무리, 사용승인 행정, 계약·보증·관리비 운영</span></div>
         <div class="figure reveal"><b>심사 통과</b><span>금산군 공공임대주택 타당성조사, 행정안전부·충청남도 지방재정투자심사</span></div>
@@ -262,7 +278,7 @@
 
   <section id="projects">
     <div class="sec grid">
-      <h2 class="label" style="margin:0;font-size:inherit">주요 프로젝트 <span>(6)</span></h2>
+      <h2 class="label">주요 프로젝트 <span>(6)</span></h2>
       <div class="body">
         <div class="filters" role="group" aria-label="프로젝트 유형 필터">
           <button type="button" data-filter="all" aria-pressed="true">전체<sup>6</sup></button>
@@ -271,11 +287,11 @@
           <button type="button" data-filter="mixed" aria-pressed="false">주상복합<sup>1</sup></button>
         </div>
 
-        <div class="index-head" aria-hidden="true"><span>No.</span><span>프로젝트</span><span>용도</span><span>규모</span><span>기간</span><span></span></div>
+        <div class="index-head in" aria-hidden="true"><span class="A">기간</span><span class="B"><span class="no">No.</span>프로젝트</span><span class="u">용도</span><span class="s">규모</span></div>
 
         <details class="project reveal" data-cat="rental">
-          <summary><span class="num soft">01</span><span class="t">상현동 LH 매입임대 공모 '서원 패밀리스테이'</span><span class="use r">임대주택 · 공모</span><span class="sc num">42세대</span><span class="pd num">2026.03–07</span><span class="sign" aria-hidden="true"></span></summary>
-          <div class="detail">
+          <summary class="in"><span class="pd num">2026.03–07</span><span class="t"><span class="no">01</span>상현동 LH 매입임대 공모 '서원 패밀리스테이'</span><span class="use r">임대주택 · 공모</span><span class="sc num">42세대</span><span class="sign" aria-hidden="true"></span></summary>
+          <div class="detail in">
             <div class="story">
               <dl class="story">
                 <dt>배경</dt>
@@ -297,8 +313,8 @@
         </details>
 
         <details class="project reveal" data-cat="rental">
-          <summary><span class="num soft">02</span><span class="t">성복동 GH 신혼부부 특화주택 공모</span><span class="use r">임대주택 · 공모</span><span class="sc num">28 → 22세대</span><span class="pd num">2025.10–2026.02</span><span class="sign" aria-hidden="true"></span></summary>
-          <div class="detail">
+          <summary class="in"><span class="pd num">2025.10–2026.02</span><span class="t"><span class="no">02</span>성복동 GH 신혼부부 특화주택 공모</span><span class="use r">임대주택 · 공모</span><span class="sc num">28 → 22세대</span><span class="sign" aria-hidden="true"></span></summary>
+          <div class="detail in">
             <div class="story">
               <dl class="story">
                 <dt>배경</dt>
@@ -318,8 +334,8 @@
         </details>
 
         <details class="project reveal" data-cat="rental">
-          <summary><span class="num soft">03</span><span class="t">임대주택 2개 단지 준공과 운영</span><span class="use r">임대주택 · 준공·운영</span><span class="sc num">63세대</span><span class="pd num">2024.05–2025.12</span><span class="sign" aria-hidden="true"></span></summary>
-          <div class="detail">
+          <summary class="in"><span class="pd num">2024.05–2025.12</span><span class="t"><span class="no">03</span>임대주택 2개 단지 준공과 운영</span><span class="use r">임대주택 · 준공·운영</span><span class="sc num">63세대</span><span class="sign" aria-hidden="true"></span></summary>
+          <div class="detail in">
             <div class="story">
               <dl class="story">
                 <dt>준공</dt>
@@ -341,8 +357,8 @@
         </details>
 
         <details class="project reveal" data-cat="rental study">
-          <summary><span class="num soft">04</span><span class="t">금산군 신혼·청년 공공임대주택 타당성조사</span><span class="use r">공공임대 · 타당성조사</span><span class="sc num">66세대</span><span class="pd num">2023.08–2024.01</span><span class="sign" aria-hidden="true"></span></summary>
-          <div class="detail">
+          <summary class="in"><span class="pd num">2023.08–2024.01</span><span class="t"><span class="no">04</span>금산군 신혼·청년 공공임대주택 타당성조사</span><span class="use r">공공임대 · 타당성조사</span><span class="sc num">66세대</span><span class="sign" aria-hidden="true"></span></summary>
+          <div class="detail in">
             <div class="story">
               <dl class="story">
                 <dt>사업 방식</dt>
@@ -364,8 +380,8 @@
         </details>
 
         <details class="project reveal" data-cat="study">
-          <summary><span class="num soft">05</span><span class="t">광주 아시아 아트플라자 타당성조사 및 기본계획</span><span class="use c">문화시설 · 타당성조사</span><span class="sc num">7,790㎡</span><span class="pd num">2022.08–12</span><span class="sign" aria-hidden="true"></span></summary>
-          <div class="detail">
+          <summary class="in"><span class="pd num">2022.08–12</span><span class="t"><span class="no">05</span>광주 아시아 아트플라자 타당성조사 및 기본계획</span><span class="use c">문화시설 · 타당성조사</span><span class="sc num">7,790㎡</span><span class="sign" aria-hidden="true"></span></summary>
+          <div class="detail in">
             <div class="story">
               <dl class="story">
                 <dt>부지 선정</dt>
@@ -385,8 +401,8 @@
         </details>
 
         <details class="project reveal" data-cat="mixed">
-          <summary><span class="num soft">06</span><span class="t">풍덕천동 주상복합 LH 매입약정 전환</span><span class="use m">주상복합 · 사업구조</span><span class="sc num">92세대</span><span class="pd num">2024.05–2025.12</span><span class="sign" aria-hidden="true"></span></summary>
-          <div class="detail">
+          <summary class="in"><span class="pd num">2024.05–2025.12</span><span class="t"><span class="no">06</span>풍덕천동 주상복합 LH 매입약정 전환</span><span class="use m">주상복합 · 사업구조</span><span class="sc num">92세대</span><span class="sign" aria-hidden="true"></span></summary>
+          <div class="detail in">
             <div class="story">
               <dl class="story">
                 <dt>배경</dt>
@@ -413,14 +429,14 @@
 
   <section id="career">
     <div class="sec grid">
-      <h2 class="label" style="margin:0;font-size:inherit">경력</h2>
+      <h2 class="label">경력</h2>
       <div class="body">
         <ol class="rows" reversed>
-          <li class="now"><span class="when">2024.05 – 재직 중</span><strong>백산이엔지 · 부동산개발관리팀</strong><span class="soft">LH·GH 공모 사업계획서 작성, 주상복합 사업구조 전환 실무 지원, 준공 품질관리와 사용승인 행정, 임대주택 63세대 운영(2024.05–2025.12)</span></li>
-          <li><span class="when">2023.08 – 2024.01</span><strong>브랜드콘텐츠 · 사업분석팀 (계약직)</strong><span class="soft">금산군 공공임대주택 타당성조사 보고서 작성, 군청 실무 협의</span></li>
-          <li><span class="when">2022.08 – 2022.12</span><strong>브랜드콘텐츠 · 사업분석팀 (계약직)</strong><span class="soft">광주 아시아 아트플라자 타당성조사·기본계획 보고서 작성, 중간보고회 발표</span></li>
-          <li><span class="when">2022.06 – 2022.07</span><strong>한국지능정보사회진흥원 · 청년인턴</strong><span class="soft">공공건물 데이터셋 현장 실측, 위치·용도·규모 정합성 검증 (근무처: 브랜드콘텐츠)</span></li>
-          <li><span class="when">2022.01 – 2022.02</span><strong>금성종합건축사사무소 · 인턴</strong><span class="soft">AutoCAD 도면 수정 보조, 공간·면적 검토</span></li>
+          <li class="in now"><span class="when A">2024.05 – 재직 중</span><strong class="B">백산이엔지 · 부동산개발관리팀</strong><span class="soft C">LH·GH 공모 사업계획서 작성, 주상복합 사업구조 전환 실무 지원, 준공 품질관리와 사용승인 행정, 임대주택 63세대 운영(2024.05–2025.12)</span></li>
+          <li class="in"><span class="when A">2023.08 – 2024.01</span><strong class="B">브랜드콘텐츠 · 사업분석팀 (계약직)</strong><span class="soft C">금산군 공공임대주택 타당성조사 보고서 작성, 군청 실무 협의</span></li>
+          <li class="in"><span class="when A">2022.08 – 2022.12</span><strong class="B">브랜드콘텐츠 · 사업분석팀 (계약직)</strong><span class="soft C">광주 아시아 아트플라자 타당성조사·기본계획 보고서 작성, 중간보고회 발표</span></li>
+          <li class="in"><span class="when A">2022.06 – 2022.07</span><strong class="B">한국지능정보사회진흥원 · 청년인턴</strong><span class="soft C">공공건물 데이터셋 현장 실측, 위치·용도·규모 정합성 검증 (근무처: 브랜드콘텐츠)</span></li>
+          <li class="in"><span class="when A">2022.01 – 2022.02</span><strong class="B">금성종합건축사사무소 · 인턴</strong><span class="soft C">AutoCAD 도면 수정 보조, 공간·면적 검토</span></li>
         </ol>
       </div>
     </div>
@@ -428,17 +444,17 @@
 
   <section id="others">
     <div class="sec grid">
-      <h2 class="label" style="margin:0;font-size:inherit">그 밖에 참여한 용역</h2>
+      <h2 class="label">그 밖에 참여한 용역</h2>
       <div class="body">
-        <p class="note">브랜드콘텐츠 계약 기간 사이사이와 백산이엔지 입사(2024.05) 전까지, 용역이 있을 때마다 건별로 참여했습니다.</p>
+        <p class="note narrowAB">브랜드콘텐츠 계약 기간 사이사이와 백산이엔지 입사(2024.05) 전까지, 용역이 있을 때마다 건별로 참여했습니다.</p>
         <ul class="rows others">
-          <li><strong>경기도 문화의날 문화예술지원 프로그램 모니터링</strong><span class="part">전 과정 수행</span><span class="soft">모니터링 계획을 세워 발표했습니다. 현장 준비·공연 운영·프로그램 품질·관객 만족도·현장 인터뷰 5개 영역 14개 항목의 체크리스트와 관객 만족도 조사표를 만들어, 전문·시민 모니터링단이 같은 기준으로 보게 했습니다. 결과를 수행단체와 담당자에게 피드백하고, 예산 산출내역·홍보물 표기·정산 증빙 요건을 직접 바로잡았습니다.</span></li>
-          <li><strong>충남형 마을만들기 2건<small>당진 송산면 오도리 · 서산 음암면 탑곡1리</small></strong><span class="part">전 과정 수행</span><span class="soft">주민 프로그램을 기획·운영했습니다. 모교 세종대 호텔관광외식경영학부 교수진을 요리교실 강사로 섭외했고, 오도리 주민 약 40명과 부산 흰여울문화마을 선진지 견학을 운영했습니다.</span></li>
-          <li><strong>광주 백운광장 상권활성화</strong><span class="part">지원</span><span class="soft">점포 사진 기록, 점주 의견 수렴, 통행량 조사</span></li>
-          <li><strong>세계국가유산산업전 참가업체 지원</strong><span class="part">지원</span><span class="soft">바이어 상담회 운영 사업기획서 작성 지원</span></li>
-          <li><strong>경주 관광특구 진흥계획</strong><span class="part">지원</span><span class="soft">사업계획서 작성 지원</span></li>
-          <li><strong>도시개발·도시재생·관광 공공 용역 3건<small>울산 도심융합특구 · 대전 오정 도시재생 혁신지구 · 구례 관광스테이</small></strong><span class="part">지원</span><span class="soft">사업계획서·발표자료 작성 지원</span></li>
-          <li><strong>문화체육관광부 한글날 행사</strong><span class="part">지원</span><span class="soft">현장 다과·좌석·경품 세팅 지원</span></li>
+          <li class="in"><strong class="B">경기도 문화의날 문화예술지원 프로그램 모니터링</strong><span class="part A">전 과정 수행</span><span class="soft C">모니터링 계획을 세워 발표했습니다. 현장 준비·공연 운영·프로그램 품질·관객 만족도·현장 인터뷰 5개 영역 14개 항목의 체크리스트와 관객 만족도 조사표를 만들어, 전문·시민 모니터링단이 같은 기준으로 보게 했습니다. 결과를 수행단체와 담당자에게 피드백하고, 예산 산출내역·홍보물 표기·정산 증빙 요건을 직접 바로잡았습니다.</span></li>
+          <li class="in"><strong class="B">충남형 마을만들기 2건<small>당진 송산면 오도리 · 서산 음암면 탑곡1리</small></strong><span class="part A">전 과정 수행</span><span class="soft C">주민 프로그램을 기획·운영했습니다. 모교 세종대 호텔관광외식경영학부 교수진을 요리교실 강사로 섭외했고, 오도리 주민 약 40명과 부산 흰여울문화마을 선진지 견학을 운영했습니다.</span></li>
+          <li class="in"><strong class="B">광주 백운광장 상권활성화</strong><span class="part A">지원</span><span class="soft C">점포 사진 기록, 점주 의견 수렴, 통행량 조사</span></li>
+          <li class="in"><strong class="B">세계국가유산산업전 참가업체 지원</strong><span class="part A">지원</span><span class="soft C">바이어 상담회 운영 사업기획서 작성 지원</span></li>
+          <li class="in"><strong class="B">경주 관광특구 진흥계획</strong><span class="part A">지원</span><span class="soft C">사업계획서 작성 지원</span></li>
+          <li class="in"><strong class="B">도시개발·도시재생·관광 공공 용역 3건<small>울산 도심융합특구 · 대전 오정 도시재생 혁신지구 · 구례 관광스테이</small></strong><span class="part A">지원</span><span class="soft C">사업계획서·발표자료 작성 지원</span></li>
+          <li class="in"><strong class="B">문화체육관광부 한글날 행사</strong><span class="part A">지원</span><span class="soft C">현장 다과·좌석·경품 세팅 지원</span></li>
         </ul>
       </div>
     </div>
@@ -446,38 +462,38 @@
 
   <section id="research" class="research">
     <div class="sec grid">
-      <h2 class="label" style="margin:0;font-size:inherit">연구</h2>
-      <div class="body">
-        <p class="paper">팝업스토어의 온라인 관심도에 미치는 영향요인에 관한 연구</p>
-        <p class="soft">건국대학교 대학원 부동산학과 석사논문 · 2026.02</p>
-        <p class="text">방문객 수는 밖에서 알 수 없어, 운영 기간 중 네이버 일평균 검색량을 관심도로 삼았습니다. 2024~2025년 성수·강남·홍대의 임차형 팝업스토어 173곳을 대상으로 업종·콘텐츠·운영 방식은 홈페이지·SNS·보도자료에서, 입지와 건물 정보는 네이버지도와 토지이음에서 직접 모았습니다. LLM과 Python으로 정리한 뒤 직접 검수하고 Stata로 다중회귀분석했으며, 분석한 팝업 대부분은 직접 다녀왔습니다.</p>
-        <ul class="findings">
-          <li><b>3.3배</b><span>가수·인플루언서 팝업 (그 외 유형 대비)</span></li>
-          <li><b>2.8배</b><span>게임·캐릭터 팝업 (그 외 유형 대비)</span></li>
-          <li><b>+45%</b><span>1층 입점 (다른 층 대비)</span></li>
-          <li><b>+36%</b><span>전면 보도 폭이 1m 넓어질 때</span></li>
-          <li><b>+39%</b><span>사전예약과 현장 입장을 함께 운영 (현장만 대비)</span></li>
-          <li><b>−8%</b><span>메인 거리에서 100m 멀어질 때</span></li>
-          <li><b>−15%</b><span>건물 연령이 10년 늘 때</span></li>
-          <li><b>−15%</b><span>운영 기간이 일주일 길어질 때, 하루 평균 관심도</span></li>
+      <h2 class="label">연구</h2>
+      <div class="body in">
+        <p class="paper AB">팝업스토어의 온라인 관심도에 미치는 영향요인에 관한 연구</p>
+        <p class="soft meta AB">건국대학교 대학원 부동산학과 석사논문 · 2026.02</p>
+        <p class="text AB">방문객 수는 밖에서 알 수 없어, 운영 기간 중 네이버 일평균 검색량을 관심도로 삼았습니다. 2024~2025년 성수·강남·홍대의 임차형 팝업스토어 173곳을 대상으로 업종·콘텐츠·운영 방식은 홈페이지·SNS·보도자료에서, 입지와 건물 정보는 네이버지도와 토지이음에서 직접 모았습니다. LLM과 Python으로 정리한 뒤 직접 검수하고 Stata로 다중회귀분석했으며, 분석한 팝업 대부분은 직접 다녀왔습니다.</p>
+        <ul class="findings" style="grid-column:1/-1">
+          <li class="in"><b>3.3배</b><span>가수·인플루언서 팝업 (그 외 유형 대비)</span></li>
+          <li class="in"><b>2.8배</b><span>게임·캐릭터 팝업 (그 외 유형 대비)</span></li>
+          <li class="in"><b>+45%</b><span>1층 입점 (다른 층 대비)</span></li>
+          <li class="in"><b>+36%</b><span>전면 보도 폭이 1m 넓어질 때</span></li>
+          <li class="in"><b>+39%</b><span>사전예약과 현장 입장을 함께 운영 (현장만 대비)</span></li>
+          <li class="in"><b>−8%</b><span>메인 거리에서 100m 멀어질 때</span></li>
+          <li class="in"><b>−15%</b><span>건물 연령이 10년 늘 때</span></li>
+          <li class="in"><b>−15%</b><span>운영 기간이 일주일 길어질 때, 하루 평균 관심도</span></li>
         </ul>
-        <p class="text">관심도는 지하철역 접근성보다 메인 거리 인접성과 더 일관되게 연결됐고, 전에 팝업이 열렸던 건물인지보다 콘텐츠 유형과 업종의 영향이 컸습니다.</p>
-        <p class="fine">다른 조건이 같을 때의 일평균 검색량 차이입니다(수정된 R² 0.438). 연속변수는 표준화계수로 환산한 근삿값이며, 검색량에는 브랜드 인지도의 영향이 섞일 수 있습니다.</p>
+        <p class="text AB">관심도는 지하철역 접근성보다 메인 거리 인접성과 더 일관되게 연결됐고, 전에 팝업이 열렸던 건물인지보다 콘텐츠 유형과 업종의 영향이 컸습니다.</p>
+        <p class="fine AB">다른 조건이 같을 때의 일평균 검색량 차이입니다(수정된 R² 0.438). 연속변수는 표준화계수로 환산한 근삿값이며, 검색량에는 브랜드 인지도의 영향이 섞일 수 있습니다.</p>
       </div>
     </div>
   </section>
 
   <section id="facts">
     <div class="sec grid">
-      <h2 class="label" style="margin:0;font-size:inherit">학력·자격·도구</h2>
+      <h2 class="label">학력·자격·도구</h2>
       <div class="body">
         <ul class="rows">
-          <li><span class="when">2026.02</span><strong>건국대학교 대학원 부동산학과 석사</strong><span class="soft">학력</span></li>
-          <li><span class="when">2024.11</span><strong>투자자산운용사</strong><span class="soft">자격</span></li>
-          <li><span class="when">2024.06</span><strong>건축기사</strong><span class="soft">자격</span></li>
-          <li><span class="when">2024.02</span><strong>세종대학교 건축학과 학사</strong><span class="soft">학력</span></li>
+          <li class="in"><span class="when A">2026.02</span><strong class="B">건국대학교 대학원 부동산학과 석사</strong><span class="soft C">학력</span></li>
+          <li class="in"><span class="when A">2024.11</span><strong class="B">투자자산운용사</strong><span class="soft C">자격</span></li>
+          <li class="in"><span class="when A">2024.06</span><strong class="B">건축기사</strong><span class="soft C">자격</span></li>
+          <li class="in"><span class="when A">2024.02</span><strong class="B">세종대학교 건축학과 학사</strong><span class="soft C">학력</span></li>
         </ul>
-        <p class="tools">Excel(사업수지·현금흐름, 월간 운영 리포트), Stata, Python, AutoCAD, PowerPoint, Word를 씁니다. 자료 조사와 데이터 정제에는 AI 도구를 함께 쓰고, 숫자는 원문 출처에서 다시 확인합니다.</p>
+        <p class="tools narrowAB">Excel(사업수지·현금흐름, 월간 운영 리포트), Stata, Python, AutoCAD, PowerPoint, Word를 씁니다. 자료 조사와 데이터 정제에는 AI 도구를 함께 쓰고, 숫자는 원문 출처에서 다시 확인합니다.</p>
       </div>
     </div>
   </section>
@@ -485,7 +501,7 @@
 
 <footer id="contact">
   <div class="sec grid">
-    <span class="label" style="grid-column:1/13;font-weight:600">연락하기</span>
+    <span class="label">연락하기</span>
     <a class="mail" href="mailto:skrudcks3191@naver.com">skrudcks3191@naver.com</a>
   </div>
   <div class="foot grid"><span>© Na Kyungchan</span><a href="#top">맨 위로 ↑</a></div>
