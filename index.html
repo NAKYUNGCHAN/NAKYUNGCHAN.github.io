@@ -118,6 +118,11 @@
   .story dd { margin: 0; font-size: 16px; }
   .result { margin: 20px 0 0; padding-left: 12px; border-left: 3px solid var(--green); font-weight: 500; font-size: 16px; }
 
+  .lesson { margin: 8px 0 0; padding-left: 15px; font-size: 15px; color: var(--ink-soft); }
+  .scope { display: block; font-style: normal; font-weight: 500; font-size: 12px; color: var(--green); margin-top: 4px; }
+  .others small { display: block; font-weight: 400; font-size: 13px; color: var(--ink-soft); }
+  .note { font-size: 13px; color: var(--ink-soft); line-height: 1.6; }
+
   /* Career timeline: a real sequence, so a line connects it */
   .timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--line); }
   .timeline li { position: relative; padding: 0 0 28px 24px; }
@@ -201,7 +206,7 @@
       <p class="role">부동산 개발 실무자</p>
       <h1>Na Kyungchan</h1>
       <p class="lead">부지 검토부터 준공, 임대 운영까지 개발사업의 처음과 끝을 해봤습니다</p>
-      <p class="intro">건축을 전공하고 건국대학교 대학원에서 부동산학 석사를 마쳤습니다. 시행사 백산이엔지에서 LH·GH 공모 사업계획서 작성, 주상복합 사업구조 전환 지원, 준공과 임대 운영을 맡고 있습니다. 그 전에는 용역사 브랜드콘텐츠에서 지자체 공공임대주택과 문화시설 타당성조사 보고서를 썼습니다.</p>
+      <p class="intro">건축을 전공하고 건국대학교 대학원에서 부동산학 석사를 마쳤습니다. 시행사 백산이엔지에서 LH·GH 공모 사업계획서를 쓰고 있으며, 임대주택 2개 단지의 준공과 운영을 맡았고, 주상복합 사업구조 전환을 실무 지원했습니다. 그 전에는 용역사 브랜드콘텐츠에서 지자체 공공임대주택과 문화시설 타당성조사 보고서를 썼습니다.</p>
       <ul class="contact">
         <li><a href="https://github.com/NAKYUNGCHAN">GitHub</a></li>
       </ul>
@@ -213,11 +218,11 @@
   <section id="results" aria-label="핵심 성과">
     <div class="wrap">
       <div class="bento">
-        <div class="cell wide reveal"><b>본PF 400억 원</b><span>풍덕천동 주상복합 92세대, LH 매입약정 구조 전환 실무 지원으로 조달 구조 마련</span></div>
-        <div class="cell reveal"><b>심사 통과</b><span>금산군 공공임대주택 타당성조사, 행정안전부·충청남도 지방재정투자심사</span></div>
-        <div class="cell reveal"><b>약 15%</b><span>LH 매입 기준에 맞춘 풍덕천동 공사비 절감안</span></div>
-        <div class="cell reveal"><b>63세대</b><span>더 테라스47 준공 전 하자 보수와 임대주택 운영</span></div>
-        <div class="cell reveal"><b>1차 통과 2건</b><span>LH·GH 매입임대 공모 서류심사</span></div>
+        <div class="cell wide reveal"><b>63세대 운영</b><span>임대주택 2개 단지(더 테라스47 · 테라스성복)의 준공 마무리, 사용승인 행정, 계약·보증·관리비 운영</span></div>
+        <div class="cell reveal"><b>심사 통과</b><span>금산군 공공임대주택 타당성조사, 지방재정투자심사</span></div>
+        <div class="cell reveal"><b>1차 통과 2건</b><span>LH·GH 매입임대 공모 사업계획서, 서류심사</span></div>
+        <div class="cell reveal"><b>본PF 400억</b><span>풍덕천동 주상복합 92세대 LH 매입약정 전환, 사업수지·IM 실무 지원</span></div>
+        <div class="cell reveal"><b>후보지 3곳</b><span>광주 아시아 아트플라자 부지 비교·선정, 중간보고회 통과</span></div>
         <div class="cell wide reveal"><b>팝업스토어 173곳</b><span>성수·강남·홍대 데이터를 직접 수집해 분석한 석사논문</span></div>
       </div>
     </div>
@@ -229,89 +234,33 @@
       <div class="filters" role="group" aria-label="프로젝트 유형 필터">
         <button type="button" data-filter="all" aria-pressed="true">전체</button>
         <button type="button" data-filter="rental" aria-pressed="false">임대주택</button>
-        <button type="button" data-filter="mixed" aria-pressed="false">주상복합</button>
         <button type="button" data-filter="study" aria-pressed="false">타당성조사</button>
+        <button type="button" data-filter="mixed" aria-pressed="false">주상복합</button>
       </div>
-
-      <article class="project reveal" data-cat="mixed">
-        <div>
-          <span class="use m">주상복합 · 사업구조</span>
-          <span class="scale">92세대</span>
-          <dl class="spec">
-            <div><dt>소속</dt><dd>백산이엔지</dd></div>
-            <div><dt>사업비</dt><dd>총사업비 약 644억 원</dd></div>
-            <div><dt>역할</dt><dd>수지표·금융기관 설명 자료 작성, 유관기관 자료 취합 (팀장 지원)</dd></div>
-          </dl>
-        </div>
-        <div>
-          <h3>풍덕천동 주상복합 사업구조 전환</h3>
-          <dl class="story">
-            <dt>역할</dt>
-            <dd>일반분양 사업을 LH 매입약정 구조로 전환하는 과정에서 팀장을 도와 수지표와 금융기관 설명 자료를 만들고, LH·금융사·설계사무소 요청 자료를 취합했습니다.</dd>
-          </dl>
-          <p class="result">LH 매입 기준에 맞춘 공사비 약 15% 절감안 마련, LH 매입약정 기반 사업구조로 전환, 본PF 400억 원 조달 구조 마련</p>
-        </div>
-      </article>
-
-      <article class="project reveal" data-cat="rental study">
-        <div>
-          <span class="use r">공공임대 · 타당성조사</span>
-          <span class="scale">66세대</span>
-          <dl class="spec">
-            <div><dt>소속</dt><dd>브랜드콘텐츠</dd></div>
-            <div><dt>사업비</dt><dd>총사업비 약 362억 원</dd></div>
-            <div><dt>역할</dt><dd>보고서 작성, 경제성·재무성 분석, 군청 실무 협의</dd></div>
-          </dl>
-        </div>
-        <div>
-          <h3>금산군 신혼·청년 공공임대주택 타당성조사</h3>
-          <dl class="story">
-            <dt>역할</dt>
-            <dd>기존 사택 리모델링안의 한계를 정리해 철거 후 신축 근거를 만들었습니다. 충남 공공임대 공가 데이터로 수요가 남는 66㎡ 중형 평형을 도출하고, 30년 현금흐름으로 경제성·재무성을 분석했습니다.</dd>
-          </dl>
-          <p class="result">행정안전부·충청남도 지방재정투자심사 통과</p>
-        </div>
-      </article>
 
       <article class="project reveal" data-cat="rental">
         <div>
-          <span class="use r">임대주택 · 준공·운영</span>
-          <span class="scale">63세대</span>
+          <span class="use r">임대주택 · 공모</span>
+          <span class="scale">42세대</span>
           <dl class="spec">
             <div><dt>소속</dt><dd>백산이엔지</dd></div>
-            <div><dt>대상</dt><dd>더 테라스47 · 테라스성복</dd></div>
-            <div><dt>역할</dt><dd>준공 품질관리, 사용승인 행정, 임대 운영</dd></div>
+            <div><dt>기간</dt><dd>2026.03 – 2026.07</dd></div>
+            <div><dt>사업</dt><dd>LH 신혼·신생아 매입임대</dd></div>
+            <div><dt>역할</dt><dd>공모 지침 분석, 사업계획서 단독 작성</dd></div>
           </dl>
         </div>
         <div>
-          <h3>더 테라스47 준공과 임대주택 운영</h3>
+          <h3>상현동 LH 매입임대 공모 '서원 패밀리스테이'</h3>
           <dl class="story">
-            <dt>준공</dt>
-            <dd>공정률 60~70% 시점에 투입되어 주 2회 현장을 점검했습니다. 외벽 방수층과 줄눈 하자를 발견해 도면과 사진을 대조한 하자 리스트를 만들고, 입주 후 보수하면 비용이 약 3배 든다는 근거로 준공 전 보수를 협의했습니다.</dd>
-            <dt>운영</dt>
-            <dd>입주 관리와 유지보수, 관리비 정산과 전자계산서 발행을 지원했고, 흩어져 있던 민원·시설점검 기록을 엑셀 월간 운영 리포트로 정리했습니다.</dd>
+            <dt>배경</dt>
+            <dd>서원초 돌봄교실과 상현도서관 어린이열람실은 오후 6시 전후로 문을 닫는데, 맞벌이 부모는 통상 7~8시에 귀가했습니다. 그 사이 아이를 맡길 곳이 마땅치 않았습니다.</dd>
+            <dt>기획</dt>
+            <dd>서원초·중·고가 도보권에 모인 입지를 살려, 초등 입학부터 고교 졸업까지 이사 없이 사는 가족 단지를 기획했습니다. 21시까지 여는 열린 독서 라운지를 중심으로 1층 특화공간 5곳과 운영 주체를 설계했습니다.</dd>
+            <dt>근거</dt>
+            <dd>학교알리미, 한국부동산원, 사교육비조사 자료를 교차 확인해 수요를 수치화하고, 시세 50% 이하 임대료와 학원비 절감을 합쳐 입주 가구 실질 가처분소득이 월 약 51만 원 늘어난다고 산출했습니다.</dd>
           </dl>
-          <p class="result">준공·사용승인 일정에 거의 영향 없이 준공 전 보수 완료</p>
-        </div>
-      </article>
-
-      <article class="project reveal" data-cat="study">
-        <div>
-          <span class="use c">문화시설 · 타당성조사</span>
-          <span class="scale">7,790㎡</span>
-          <dl class="spec">
-            <div><dt>소속</dt><dd>브랜드콘텐츠</dd></div>
-            <div><dt>사업비</dt><dd>총사업비 약 376억 원</dd></div>
-            <div><dt>역할</dt><dd>보고서 작성, 중간보고회 발표</dd></div>
-          </dl>
-        </div>
-        <div>
-          <h3>광주 아시아 아트플라자 타당성조사 및 기본계획</h3>
-          <dl class="story">
-            <dt>역할</dt>
-            <dd>후보지 3곳을 답사·비교해 최적지를 선정하고, 주거지역 안 건립 가능성을 법령·판례로 검토했습니다. 조달청 유사사례로 공사비를 산정해 30년 경제성을 분석했습니다.</dd>
-          </dl>
-          <p class="result">중간보고회 통과, 기본계획 수립 완료</p>
+          <p class="result">1차 서류심사 통과, 최종 탈락(인근 아파트 민원 우려)</p>
+          <p class="lesson">이후 주민 수용성과 민원 가능성을 사업 초기 검토 항목에 넣었습니다.</p>
         </div>
       </article>
 
@@ -321,43 +270,118 @@
           <span class="scale">28 → 22세대</span>
           <dl class="spec">
             <div><dt>소속</dt><dd>백산이엔지</dd></div>
+            <div><dt>기간</dt><dd>2025.10 – 2026.02</dd></div>
             <div><dt>사업</dt><dd>GH 특화형 매입임대</dd></div>
-            <div><dt>역할</dt><dd>공모 대안 제안, 신혼부부 특화주택 재기획</dd></div>
+            <div><dt>역할</dt><dd>공모 발굴, 사업계획서 단독 작성</dd></div>
           </dl>
         </div>
         <div>
           <h3>성복동 GH 신혼부부 특화주택 공모</h3>
           <dl class="story">
             <dt>배경</dt>
-            <dd>일반분양 사업의 PF가 부결될 상황에서 GH 특화형 매입임대 공모를 대안으로 찾아 제안하고, 일반분양 28세대를 신혼부부 특화주택 22세대로 재기획했습니다.</dd>
+            <dd>일반분양 28세대 사업이 PF 부결 위기에 놓이자, 공공이 매입하는 GH 특화형 매입임대 공모를 찾아 제안하고 신혼부부 특화주택 22세대로 재기획했습니다.</dd>
             <dt>기획</dt>
-            <dd>수지구 신혼부부 7,052쌍, 국공립 어린이집 부족률 70%, 초등 방과후교실 수용률 8~9%를 근거로, 아이 나이에 맞춰 바꿔 쓰는 실내 140㎡ 가변형 특화공간을 제안했습니다.</dd>
+            <dd>수지구 신혼부부 7,052쌍 중 3,694쌍이 자녀를 두었지만 국공립 어린이집 부족률은 70%였고, 용인시 초등돌봄교실 수용률은 8~9%에 그쳤습니다. 이를 근거로 실내 140㎡ 특화공간을 아이 나이에 따라 어린이집에서 방과후 교육실로 바꿔 쓰는 단계별 계획과 옥외·옥상 생태공간을 제안했습니다.</dd>
           </dl>
-          <p class="result">1차 서류심사 통과, 최종 심사 탈락</p>
+          <p class="result">1차 서류심사 통과, 최종 탈락(대지 진입로 협소)</p>
+          <p class="lesson">이후 부지 접근성을 검토 첫 단계에서 확인하고 있습니다.</p>
         </div>
       </article>
 
       <article class="project reveal" data-cat="rental">
         <div>
-          <span class="use r">임대주택 · 공모</span>
-          <span class="scale">42세대</span>
+          <span class="use r">임대주택 · 준공·운영</span>
+          <span class="scale">63세대</span>
           <dl class="spec">
             <div><dt>소속</dt><dd>백산이엔지</dd></div>
-            <div><dt>사업</dt><dd>LH 신혼·신생아 매입임대</dd></div>
-            <div><dt>역할</dt><dd>공모 사업계획서 작성, 단지 기획과 수요 분석</dd></div>
+            <div><dt>기간</dt><dd>2024.05 – 2025.12</dd></div>
+            <div><dt>대상</dt><dd>더 테라스47(47세대) · 테라스성복(16세대)</dd></div>
+            <div><dt>역할</dt><dd>준공 품질관리, 사용승인 행정, 임대 운영</dd></div>
           </dl>
         </div>
         <div>
-          <h3>상현동 LH 매입임대 공모 '서원 패밀리스테이'</h3>
+          <h3>임대주택 2개 단지 준공과 운영</h3>
+          <dl class="story">
+            <dt>준공</dt>
+            <dd>더 테라스47 현장에 공정률 60~70% 시점에 투입되어 마감 품질을 점검했습니다. 외벽 방수 하자 가능성을 발견했지만 시공사는 공정 지연을 이유로 준공 후 처리를 주장했습니다. 입주 후 재시공하면 외벽·세대 내부 복구와 임차인 대응까지 비용이 약 3배 든다는 비교 자료를 만들어 준공 전 보수를 합의했고, 사용승인 서류와 행정을 지원했습니다.</dd>
+            <dt>임대 운영</dt>
+            <dd>임대차 계약과 재계약, 임대보증금 보증, 관리비 수납을 맡았습니다. 공시가격과 보증 한도 기준이 바뀔 때마다 세대별 한도를 다시 계산했고, 재계약 인상안은 5% 상한과 비교해 검토했습니다. 관리비·임대료 입금을 세대별로 대조해 미납을 추적하고 매출 전자계산서를 발행했습니다. 2024년 이전 기록은 기존 관리대장을 이어받아 관리했습니다.</dd>
+            <dt>분양전환</dt>
+            <dd>임대 후 분양전환 구조인 더 테라스47은 신청금·계약금·중도금·잔금 입금을 단계별로 관리했습니다.</dd>
+          </dl>
+          <p class="result">준공 전 방수 보수 합의, 흩어진 민원·유지보수 기록을 엑셀 월간 운영 리포트로 정리</p>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="rental study">
+        <div>
+          <span class="use r">공공임대 · 타당성조사</span>
+          <span class="scale">66세대</span>
+          <dl class="spec">
+            <div><dt>소속</dt><dd>브랜드콘텐츠</dd></div>
+            <div><dt>기간</dt><dd>2023.08 – 2024.01</dd></div>
+            <div><dt>사업비</dt><dd>총사업비 약 362억 원</dd></div>
+            <div><dt>역할</dt><dd>보고서 단독 작성, 군청·충남개발공사 실무 협의</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3>금산군 신혼·청년 공공임대주택 타당성조사</h3>
+          <dl class="story">
+            <dt>사업 방식</dt>
+            <dd>기존 사택 일부를 리모델링해 쓰는 당초안을 구조안전·노후도, 향후 수요, 장기 유지관리비로 다시 검토해 전면 철거 후 신축 근거를 만들었습니다.</dd>
+            <dt>수요</dt>
+            <dd>청년 1인 가구 비율만 보면 소형 수요가 커 보였지만, 공공임대 소형 평형 공가율은 중형의 약 4배였습니다. 실제 선호 데이터를 근거로 66㎡ 중형 중심 공급을 제안했습니다.</dd>
+            <dt>경제성</dt>
+            <dd>30년 현금흐름에 정량화 가능한 직접편익만 보수적으로 반영하고, 청년 정착 같은 정책적 타당성으로 보완했습니다.</dd>
+          </dl>
+          <p class="result">지방재정투자심사 통과</p>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="study">
+        <div>
+          <span class="use c">문화시설 · 타당성조사</span>
+          <span class="scale">7,790㎡</span>
+          <dl class="spec">
+            <div><dt>소속</dt><dd>브랜드콘텐츠</dd></div>
+            <div><dt>기간</dt><dd>2022.08 – 2022.12</dd></div>
+            <div><dt>사업비</dt><dd>총사업비 약 376억 원</dd></div>
+            <div><dt>역할</dt><dd>보고서 단독 작성, 현장조사, 중간보고회 발표</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3>광주 아시아 아트플라자 타당성조사 및 기본계획</h3>
+          <dl class="story">
+            <dt>부지 선정</dt>
+            <dd>후보지 3곳을 답사해 용도지역과 규제, 지형·접근성, 주변 시설을 비교했습니다. 평지에 여러 방향으로 진입할 수 있고 주변 문화시설이 부족한 광산구 수완동을 최적지로 제안했습니다.</dd>
+            <dt>인허가·경제성</dt>
+            <dd>주거지역 안 예술인 레지던시 건립 가능성을 법령·판례로 검토하고, 조달청 유사사례로 공사비를 산정해 30년 경제성을 분석했습니다.</dd>
+          </dl>
+          <p class="result">중간보고회 통과, 기본계획 수립 완료</p>
+        </div>
+      </article>
+
+      <article class="project reveal" data-cat="mixed">
+        <div>
+          <span class="use m">주상복합 · 사업구조</span>
+          <span class="scale">92세대</span>
+          <dl class="spec">
+            <div><dt>소속</dt><dd>백산이엔지</dd></div>
+            <div><dt>기간</dt><dd>2024.05 – 2025.12</dd></div>
+            <div><dt>규모</dt><dd>지하4층·지상22층, 연면적 14,304.95㎡</dd></div>
+            <div><dt>사업비</dt><dd>총사업비 약 644억 원 · 본PF 400억 원</dd></div>
+            <div><dt>역할</dt><dd>실무 지원 (팀장 주도 사업)</dd></div>
+          </dl>
+        </div>
+        <div>
+          <h3>풍덕천동 주상복합 LH 매입약정 전환</h3>
           <dl class="story">
             <dt>배경</dt>
-            <dd>주변 돌봄·독서 시설은 이르면 17시에 문을 닫아, 맞벌이 부모가 퇴근하는 19~20시까지 아이를 맡길 곳이 마땅치 않았습니다.</dd>
-            <dt>기획</dt>
-            <dd>서원초·중·고 학군을 중심으로 한 10년 정주형 가족 단지를 기획하고, 21시까지 여는 독서 라운지 등 특화공간 5곳과 운영 주체를 설계했습니다.</dd>
-            <dt>근거</dt>
-            <dd>학교알리미, 한국부동산원, 사교육비조사 자료를 교차 확인해 수요를 수치화하고, 입주 가구 실질 가처분소득 월 약 51만 원 개선 효과를 산출했습니다.</dd>
+            <dd>용인 수지구의 주상복합 일반분양 사업을 미분양 위험에 대응해 LH 공사비 연동형 매입약정 구조로 전환한 사업입니다.</dd>
+            <dt>실무 지원</dt>
+            <dd>팀장이 이끈 전환 과정에서 사업수지표와 현금흐름을 정리하고, PF 대출 모집 자료(IM) 작성을 지원했습니다. LH·금융사·설계사무소가 요청한 자료를 취합해 전달했습니다.</dd>
           </dl>
-          <p class="result">1차 서류심사 통과, 최종 심사 탈락</p>
+          <p class="result">LH 기준 설계 개선 검토로 공사비 약 15% 절감안 마련, 본PF 400억 원 조달 구조와 기투입 에쿼티 회수 구조 수립을 지원</p>
         </div>
       </article>
     </div>
@@ -370,7 +394,7 @@
         <li class="now">
           <span class="when">2024.05 – 재직 중</span>
           <strong>백산이엔지 · 부동산개발관리팀</strong>
-          <p>공모 사업계획서 작성, 사업구조 전환 실무 지원, 준공 품질관리와 사용승인 행정, 임대 운영</p>
+          <p>LH·GH 공모 사업계획서 작성, 주상복합 사업구조 전환 실무 지원, 준공 품질관리와 사용승인 행정, 임대주택 63세대 운영(2024.05–2025.12)</p>
         </li>
         <li>
           <span class="when">2023.08 – 2024.01</span>
@@ -399,12 +423,14 @@
   <section id="others">
     <div class="wrap">
       <h2>그 밖에 참여한 용역</h2>
+      <p class="narrow note" style="margin:-16px 0 24px">브랜드콘텐츠 계약 기간 사이사이와 백산이엔지 입사(2024.05) 전까지, 용역이 있을 때마다 건별로 참여했습니다.</p>
       <table class="others">
-        <tr><th>광주 백운광장 상권활성화</th><td>점포 사진 기록, 점주 의견 수렴, 통행량 조사</td></tr>
-        <tr><th>경기도 문화의날 문화예술지원 프로그램 모니터링</th><td>5개 영역 14개 항목의 현장 체크리스트와 관객 만족도 조사표 작성, 모니터링 계획 발표</td></tr>
-        <tr><th>농촌 마을만들기 주민 프로그램</th><td>요리교실 강사 섭외, 주민 약 40명과 부산 흰여울문화마을 선진지 견학 운영</td></tr>
-        <tr><th>경주관광특구 진흥계획</th><td>사업계획서 작성 지원</td></tr>
-        <tr><th>세계국가유산산업전</th><td>바이어 상담회 운영 사업기획서 작성 지원</td></tr>
+        <tr><th>경기도 문화의날 문화예술지원 프로그램 모니터링<em class="scope">전반 참여</em></th><td>모니터링 계획을 세워 발표했습니다. 현장 준비·공연 운영·프로그램 품질·관객 만족도·현장 인터뷰 5개 영역 14개 항목의 체크리스트와 관객 만족도 조사표를 만들어, 전문·시민 모니터링단이 같은 기준으로 보게 했습니다. 결과를 수행단체와 담당자에게 피드백하고, 예산 산출내역·홍보물 표기·정산 증빙 요건을 직접 바로잡았습니다.</td></tr>
+        <tr><th>충남형 마을만들기 2건<em class="scope">전반 참여</em><small>당진 송산면 오도리 · 서산 음암면 탑곡1리</small></th><td>주민 프로그램을 기획·운영했습니다. 모교 세종대 호텔관광외식경영학부 교수진을 요리교실 강사로 섭외했고, 오도리 주민 약 40명과 부산 흰여울문화마을 선진지 견학을 운영했습니다.</td></tr>
+        <tr><th>광주 백운광장 상권활성화<em class="scope">일부 참여</em></th><td>점포 사진 기록, 점주 의견 수렴, 통행량 조사</td></tr>
+        <tr><th>세계국가유산산업전 참가업체 지원<em class="scope">일부 참여</em></th><td>바이어 상담회 운영 사업기획서 작성 지원</td></tr>
+        <tr><th>경주 관광특구 진흥계획<em class="scope">일부 참여</em></th><td>사업계획서 작성 지원</td></tr>
+        <tr><th>문화체육관광부 한글날 행사<em class="scope">일부 참여</em></th><td>현장 다과·좌석·경품 세팅 지원</td></tr>
       </table>
     </div>
   </section>
@@ -414,14 +440,19 @@
       <h2>연구</h2>
       <p class="paper-title">팝업스토어의 온라인 관심도에 미치는 영향요인에 관한 연구</p>
       <p class="meta">건국대학교 대학원 부동산학과 석사논문 · 2026.02</p>
-      <p class="narrow">2024년 1월부터 2025년 10월까지 성수·강남·홍대 상권의 임차형 팝업스토어 173곳을 직접 수집했습니다. 홈페이지·SNS·보도자료, 네이버 데이터랩, 토지이음 자료를 Python으로 정제하고, 운영 기간 중 네이버 일평균 검색량을 관심도로 삼아 Stata로 다중회귀분석했습니다. 분석 대상 팝업 대부분은 직접 방문했습니다.</p>
+      <p class="narrow">방문객 수는 밖에서 알 수 없어, 운영 기간 중 네이버 일평균 검색량을 관심도로 삼았습니다. 2024~2025년 성수·강남·홍대의 임차형 팝업스토어 173곳을 대상으로 업종·콘텐츠·운영 방식은 홈페이지·SNS·보도자료에서, 입지와 건물 정보는 네이버지도와 토지이음에서 직접 모았습니다. LLM과 Python으로 정리한 뒤 직접 검수하고 Stata로 다중회귀분석했으며, 분석한 팝업 대부분은 직접 다녀왔습니다.</p>
       <div class="findings">
-        <div class="finding"><b>약 3.3배</b><span>가수·인플루언서 팝업의 관심도 (그 외 유형 대비)</span></div>
-        <div class="finding"><b>+45%</b><span>1층에 입점한 팝업의 관심도</span></div>
+        <div class="finding"><b>3.3배</b><span>가수·인플루언서 팝업 (그 외 유형 대비)</span></div>
+        <div class="finding"><b>2.8배</b><span>게임·캐릭터 팝업 (그 외 유형 대비)</span></div>
+        <div class="finding"><b>+45%</b><span>1층 입점 (다른 층 대비)</span></div>
         <div class="finding"><b>+36%</b><span>전면 보도 폭이 1m 넓어질 때</span></div>
+        <div class="finding"><b>+39%</b><span>사전예약과 현장 입장을 함께 운영 (현장만 대비)</span></div>
+        <div class="finding"><b>−8%</b><span>메인 거리에서 100m 멀어질 때</span></div>
+        <div class="finding"><b>−15%</b><span>건물 연령이 10년 늘 때</span></div>
         <div class="finding"><b>−15%</b><span>운영 기간이 일주일 길어질 때, 하루 평균 관심도</span></div>
       </div>
-      <p class="narrow">관심도는 지하철역 접근성보다 메인 거리 인접성과 더 일관되게 연결됐습니다.</p>
+      <p class="narrow">관심도는 지하철역 접근성보다 메인 거리 인접성과 더 일관되게 연결됐고, 전에 팝업이 열렸던 건물인지보다 콘텐츠 유형과 업종의 영향이 컸습니다.</p>
+      <p class="note narrow">다른 조건이 같을 때의 일평균 검색량 차이입니다(수정된 R² 0.438). 연속변수는 표준화계수로 환산한 근삿값이며, 검색량에는 브랜드 인지도의 영향이 섞일 수 있습니다.</p>
     </div>
   </section>
 
